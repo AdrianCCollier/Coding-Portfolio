@@ -13,20 +13,23 @@ export const Projects = () => {
   const projects = [
     {
       title: 'Automated WEPA Tracker',
-      description: 'Built with: React.js, Material-UI, Node.js, Express.js, MongoDB, AWS LightSail',
+      description:
+        'Built with: React.js, Material-UI, Node.js, Express.js, MongoDB, AWS LightSail',
       imgUrl: projImg,
+      url: 'https://www.labcrabs.com',
     },
     {
       title: 'Asteroid Explorer',
-      description: 'Built with: React.js, CSS3, Node.js, Express.js, MongoDB, AWS Elastic BeanStalk',
+      description:
+        'Built with: React.js, CSS3, Node.js, Express.js, MongoDB, AWS Elastic BeanStalk',
       imgUrl: projImg,
+      url: 'https://www.asteroidexplorer.com'
     },
     {
       title: 'Snake Game',
       description: 'Built with: HTML5, CSS3, JavaScript',
       imgUrl: projImg,
     },
-    
   ]
 
   return (
