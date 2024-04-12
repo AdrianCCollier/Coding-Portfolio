@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
 import { Navbar, Nav, Container } from 'react-bootstrap'
 import logo from '../assets/img/logo.svg'
-import navIcon1 from '../assets/img/nav-icon1.svg'
-import navIcon2 from '../assets/img/nav-icon2.svg'
-import navIcon3 from '../assets/img/nav-icon3.svg'
+import LinkedInIcon from '../assets/img/nav-icon1.svg'
+import GithubIcon from '../assets/img/nav-icon2.svg'
+import DownloadIcon from '../assets/img/nav-icon3.svg'
 import { HashLink } from 'react-router-hash-link'
 import { BrowserRouter as Router } from 'react-router-dom'
 
@@ -78,20 +78,20 @@ export const NavBar = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <img src={navIcon1} alt="" />
+                  <img src={LinkedInIcon} alt="" />
                 </a>
                 <a
                   href="https://github.com/AdrianCCollier"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <img src={navIcon2} alt="" />
+                  <img src={GithubIcon} alt="" />
                 </a>
                 <a
                   href="/Resume Adrian Collier.pdf"
                   download="Resume Adrian Collier.pdf"
                 >
-                  <img src={navIcon3} alt="" />
+                  <img src={DownloadIcon} alt="" />
                 </a>
               </div>
               <HashLink to="#connect">
