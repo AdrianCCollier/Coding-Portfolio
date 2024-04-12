@@ -10,14 +10,16 @@ app.use(cors())
 app.use(express.json())
 app.use('/', router)
 app.listen(5000, () => console.log('Server Running'))
-console.log(process.env.EMAIL_USER)
-console.log(process.env.EMAIL_PASS)
+
 
 const contactEmail = nodemailer.createTransport({
   service: 'gmail',
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS,
+  },
+  tls: {
+    rejectUnauthorized: false,
   },
 })
 
@@ -30,6 +32,8 @@ contactEmail.verify((error) => {
 })
 
 router.post('/contact', (req, res) => {
+  console.log('Received data: ', req.body)
+
   const name = req.body.firstName + ' ' + req.body.lastName
   const email = req.body.email
   const message = req.body.message
@@ -43,10 +47,14 @@ router.post('/contact', (req, res) => {
            <p>Phone: ${phone}</p>
            <p>Message: ${message}</p>`,
   }
+
+
   contactEmail.sendMail(mail, (error) => {
     if (error) {
-      res.json(error)
+      console.log('Email send error:', error)
+      res.json({ code: 400, status: 'Error sending message', error: error })
     } else {
+      console.log('Email sent successfully')
       res.json({ code: 200, status: 'Message Sent' })
     }
   })

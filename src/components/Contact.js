@@ -23,9 +23,10 @@ export const Contact = () => {
     })
   }
 
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    setButtonText('Sending...')
+const handleSubmit = async (e) => {
+  e.preventDefault()
+  setButtonText('Sending...')
+  try {
     let response = await fetch('http://localhost:5000/contact', {
       method: 'POST',
       headers: {
@@ -33,18 +34,25 @@ export const Contact = () => {
       },
       body: JSON.stringify(formDetails),
     })
-    setButtonText('Send')
-    let result = await response.json()
-    setFormDetails(formInitialDetails)
-    if (result.code == 200) {
-      setStatus({ succes: true, message: 'Message sent successfully' })
-    } else {
+    if (response.ok) {
+      let result = await response.json()
+      setFormDetails(formInitialDetails)
       setStatus({
-        succes: false,
-        message: 'Something went wrong, please try again later.',
+        success: result.code == 200,
+        message: result.status || 'Message sent successfully',
       })
+    } else {
+      throw new Error('Network response was not ok.')
     }
+  } catch (error) {
+    setStatus({
+      success: false,
+      message: 'Failed to send message: ' + error.message,
+    })
   }
+  setButtonText('Send')
+}
+
 
   return (
     <section className="contact" id="connect">
