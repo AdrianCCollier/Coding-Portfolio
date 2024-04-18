@@ -23,36 +23,37 @@ export const Contact = () => {
     })
   }
 
-const handleSubmit = async (e) => {
-  e.preventDefault()
-  setButtonText('Sending...')
-  try {
-    let response = await fetch('http://localhost:5000/contact', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json;charset=utf-8',
-      },
-      body: JSON.stringify(formDetails),
-    })
-    if (response.ok) {
-      let result = await response.json()
-      setFormDetails(formInitialDetails)
-      setStatus({
-        success: result.code == 200,
-        message: result.status || 'Message sent successfully',
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    setButtonText('Sending...')
+    try {
+      // let response = await fetch('https://adrianccollier.com/contact', {
+        let response = await fetch('http://localhost:5000/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json;charset=utf-8',
+        },
+        body: JSON.stringify(formDetails),
+        credentials: 'include',
       })
-    } else {
-      throw new Error('Network response was not ok.')
+      if (response.ok) {
+        let result = await response.json()
+        setFormDetails(formInitialDetails)
+        setStatus({
+          success: result.code == 200,
+          message: result.status || 'Message sent successfully',
+        })
+      } else {
+        throw new Error('Network response was not ok.')
+      }
+    } catch (error) {
+      setStatus({
+        success: false,
+        message: 'Failed to send message: ' + error.message,
+      })
     }
-  } catch (error) {
-    setStatus({
-      success: false,
-      message: 'Failed to send message: ' + error.message,
-    })
+    setButtonText('Send')
   }
-  setButtonText('Send')
-}
-
 
   return (
     <section className="contact" id="connect">

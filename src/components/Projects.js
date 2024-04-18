@@ -4,7 +4,9 @@ import projImg1 from "../assets/img/project-img1.png";
 import projImg2 from "../assets/img/project-img2.png";
 import projImg3 from "../assets/img/project-img3.png";
 import colorSharp2 from "../assets/img/color-sharp2.png";
-import projImg from "../assets/img/banner-bg.png"
+import AsteroidCover from "../assets/img/AsteroidExplorerCover.png"
+import SiteCover from '../assets/img/SiteCover.png'
+import WEPACover from '../assets/img/WepaCover.png'
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
 
@@ -12,23 +14,23 @@ export const Projects = () => {
 
   const projects = [
     {
-      title: 'Automated WEPA Tracker',
+      title: 'Automated Cloud-Printer Monitoring System',
       description:
-        'Built with: React.js, Material-UI, Node.js, Express.js, MongoDB, AWS LightSail',
-      imgUrl: projImg,
+        'I solved a real world problem for the NMSU ICT Student Tech Department by automating the WEPAnow systems used by 14,000 students. This app is used daily by NMSU employees.',
+      imgUrl: WEPACover,
       url: 'https://www.labcrabs.com',
     },
     {
-      title: 'Asteroid Explorer',
+      title: 'Space Themed 2D Shooter Game',
       description:
-        'Built with: React.js, CSS3, Node.js, Express.js, MongoDB, AWS Elastic BeanStalk',
-      imgUrl: projImg,
-      url: 'https://www.asteroidexplorer.com'
+        'I developed and launched this game in collaboration with 3 teammates for our Computer Science Senior Project ',
+      imgUrl: AsteroidCover,
+      url: 'https://www.asteroidexplorer.com',
     },
     {
-      title: 'Snake Game',
-      description: 'Built with: HTML5, CSS3, JavaScript',
-      imgUrl: projImg,
+      title: 'This Site',
+      description: 'Built with: React.js, React-Bootstrap, Node.js, Express.js, AWS LightSail',
+      imgUrl: SiteCover,
     },
   ]
 

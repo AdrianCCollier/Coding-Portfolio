@@ -90,9 +90,9 @@ export const Banner = () => {
                     Explore my work to see how I use technology to transform
                     ideas into functional applications.
                   </p>
-                  <button onClick={() => console.log('connect')}>
+                  {/* <button onClick={() => console.log('connect')}>
                     Let’s Connect <ArrowRightCircle size={25} />
-                  </button>
+                  </button> */}
                 </div>
               )}
             </TrackVisibility>

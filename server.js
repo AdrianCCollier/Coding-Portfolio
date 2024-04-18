@@ -5,12 +5,22 @@ const nodemailer = require('nodemailer')
 require('dotenv').config()
 
 // server used to send send emails
-const app = express()
-app.use(cors())
-app.use(express.json())
-app.use('/', router)
-app.listen(5000, () => console.log('Server Running'))
+const app = express();
 
+const corsOptions = {
+  // origin: ['https://adrianccollier.com', 'https://www.adrianccollier.com'],
+  origin: ['http://localhost:3000'],
+  optionsSuccessStatus: 200,
+  credentials: true,
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  allowedHeaders: 'Content-Type,Authorization',
+}
+
+app.use(cors(corsOptions))
+app.use(express.json())
+
+// app.use(express.static('/home/bitnami/htdocs'))
+app.use('/', router)
 
 const contactEmail = nodemailer.createTransport({
   service: 'gmail',
@@ -48,7 +58,6 @@ router.post('/contact', (req, res) => {
            <p>Message: ${message}</p>`,
   }
 
-
   contactEmail.sendMail(mail, (error) => {
     if (error) {
       console.log('Email send error:', error)
@@ -59,3 +68,9 @@ router.post('/contact', (req, res) => {
     }
   })
 })
+
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, '../frontend/build/index.html'))
+// })
+
+app.listen(5000, () => console.log('Server Listening'))
