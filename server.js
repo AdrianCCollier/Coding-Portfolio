@@ -5,11 +5,13 @@ const nodemailer = require('nodemailer')
 require('dotenv').config()
 
 // server used to send send emails
-const app = express();
+const app = express()
 
 const corsOptions = {
-  // origin: ['https://adrianccollier.com', 'https://www.adrianccollier.com'],
-  origin: ['http://localhost:3000'],
+  // AWS Path
+  origin: ['https://adrianccollier.com', 'https://www.adrianccollier.com'],
+  // Local development path
+  // origin: ['http://localhost:3000'],
   optionsSuccessStatus: 200,
   credentials: true,
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
