@@ -21,7 +21,7 @@ const corsOptions = {
 app.use(cors(corsOptions))
 app.use(express.json())
 
-// app.use(express.static('/home/bitnami/htdocs'))
+app.use(express.static('/home/bitnami/htdocs'))
 app.use('/', router)
 
 const contactEmail = nodemailer.createTransport({
@@ -71,8 +71,12 @@ router.post('/contact', (req, res) => {
   })
 })
 
-// app.get('*', (req, res) => {
-//   res.sendFile(path.join(__dirname, '../frontend/build/index.html'))
-// })
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/build/index.html'))
+})
 
-app.listen(5000, () => console.log('Server Listening'))
+// Local development
+// app.listen(5000, () => console.log('Server Listening'))
+
+// Deployment
+app.listen(5000, '0.0.0.0', () => console.log('Server listening on port 5000'))

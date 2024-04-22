@@ -16,7 +16,7 @@ export const Projects = () => {
     {
       title: 'Automated Cloud-Printer Monitoring System',
       description:
-        'I solved a real world problem for the NMSU ICT Student Tech Department by automating the WEPAnow systems used by 14,000 students. This app is used daily by NMSU employees.',
+        'I solved a real world problem for the NMSU ICT Student Tech Department by automating the WEPAnow NMSU systems used by 14,000 students. This app is used daily by our ICT department.',
       imgUrl: WEPACover,
       url: 'https://www.labcrabs.com',
     },
