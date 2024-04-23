@@ -9,7 +9,7 @@ export const Banner = () => {
   const [loopNum, setLoopNum] = useState(0)
   const [isDeleting, setIsDeleting] = useState(false)
   const [text, setText] = useState('')
-  const [delta, setDelta] = useState(300 - Math.random() * 100)
+  const [delta, setDelta] = useState(175 - Math.random() * 100)
   const toRotate = [
     'Full-Stack Developer',
     'Software Engineer',
@@ -39,7 +39,7 @@ export const Banner = () => {
         preserveAspectRatio: 'xMidYMid slice',
         progressiveLoad: true,
         clearCanvas: true,
-        hideOnTransparent: true, // Ensures transparency is respected
+        hideOnTransparent: true,
       },
     })
 
@@ -65,7 +65,7 @@ export const Banner = () => {
     } else if (isDeleting && updatedText === '') {
       setIsDeleting(false)
       setLoopNum(loopNum + 1)
-      setDelta(500)
+      setDelta(175 - Math.random() * 100)
     }
   }
 
@@ -83,19 +83,19 @@ export const Banner = () => {
                 >
                   <span className="tagline">Welcome to my Portfolio</span>
                   <h1>
-                    {`Hi! I'm Adrian`}{' '}
-                    <span
-                      className="txt-rotate"
-                      dataPeriod="1000"
-                      data-rotate='[ "Full-Stack Software Developer", "React Engineer", "UI/UX Designer"]'
-                    >
+                    {`Hi! I'm Adrian`}
+                    <div className="txt-rotate" style={{ display: 'block' }}>
                       <span className="wrap">{text}</span>
-                    </span>
+                    </div>
                   </h1>
                   <p>
-                    I'm a recent Computer Science graduate and have specialized in Full-Stack Software Development with a focus on React, Nodejs and
-                    modern web technologies. I'm a strong believer that solving problems is all about the ability to break them into smaller more achievable sub-problems. I'm eager to join a dynamic team in order to begin contributing.
-                    Feel free to explore my work to see how I use technology in order to transform
+                    I'm a recent Computer Science graduate and have specialized
+                    in Full-Stack Software Development with a focus on React.js,
+                    Node.js, Express.js, MongoDB, and AWS. I'm a strong believer
+                    that solving problems is all about the ability to break them
+                    into smaller more achievable sub-problems. I'm eager to join
+                    a dynamic team in order to begin contributing. Feel free to
+                    explore my work to see how I use technology to transform
                     ideas into functional applications.
                   </p>
                 </div>
@@ -113,8 +113,12 @@ export const Banner = () => {
                   style={{
                     height: 400,
                     width: 400,
-                    transform: 'rotate(290deg)', // Rotates the animation 90 degrees clockwise
-                    transformOrigin: 'center center', // Sets the center of the element as the point of rotation
+                    border: '5px solid red',
+                    transform: 'rotate(270deg)',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    transformOrigin: 'center center',
                   }}
                 />
               )}
