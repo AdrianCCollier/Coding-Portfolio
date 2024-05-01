@@ -43,7 +43,7 @@ export const Banner = () => {
       },
     })
 
-    return () => anim.destroy()
+    return () => anim.destroy();
   }, [])
 
   const tick = () => {
@@ -102,7 +102,12 @@ export const Banner = () => {
               )}
             </TrackVisibility>
           </Col>
-          <Col xs={12} md={6} xl={5}>
+          <Col
+            xs={12}
+            md={6}
+            xl={5}
+            style={{ paddingLeft: '7.5%', paddingRight: '5%' }}
+          >
             <TrackVisibility>
               {({ isVisible }) => (
                 <div
@@ -113,11 +118,7 @@ export const Banner = () => {
                   style={{
                     height: 400,
                     width: 400,
-                    border: '5px solid red',
-                    transform: 'rotate(270deg)',
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
+                    transform: 'rotate(290deg)',
                     transformOrigin: 'center center',
                   }}
                 />
