@@ -5,6 +5,7 @@ const nodemailer = require('nodemailer')
 require('dotenv').config()
 
 // server used to send send emails
+// change
 const app = express()
 
 const corsOptions = {
